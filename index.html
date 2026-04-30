@@ -325,6 +325,19 @@
     border-color: var(--border);
   }
 
+  .link-pill.in-dev {
+    background: var(--accent-soft);
+    border-color: rgba(196,87,42,0.25);
+    color: var(--accent);
+  }
+
+  .link-pill.in-dev:hover {
+    background: var(--accent-soft);
+    border-color: rgba(196,87,42,0.25);
+    color: var(--accent);
+    cursor: default;
+  }
+
   .project-context {
     font-size: 0.72rem;
     font-weight: 500;
@@ -378,6 +391,59 @@
     letter-spacing: 0.06em;
     font-size: 0.65rem;
     margin-right: 2px;
+  }
+
+  /* ── BUILDING-NOW BANNER ── */
+  .building-banner {
+    background: linear-gradient(135deg, rgba(196,87,42,0.06) 0%, rgba(196,87,42,0.02) 100%);
+    border: 1px solid rgba(196,87,42,0.18);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .building-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  }
+
+  .building-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .building-label .live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 1.6s ease infinite;
+  }
+
+  .building-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+
+  .building-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 640px;
   }
 
   /* ── EDUCATION / CERTS ── */
@@ -501,6 +567,7 @@
   .project:nth-child(3) { animation-delay: 0.26s; }
   .project:nth-child(4) { animation-delay: 0.34s; }
   .project:nth-child(5) { animation-delay: 0.42s; }
+  .project:nth-child(6) { animation-delay: 0.50s; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 640px) {
@@ -513,6 +580,7 @@
     .section { padding: 40px 0; }
     .exp-card { padding: 24px; }
     .project { padding: 24px; }
+    .building-banner { padding: 22px 24px; }
   }
 </style>
 </head>
@@ -531,10 +599,11 @@
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;justify-content:flex-end;">
           <a class="link-pill" href="mailto:mishrash662@gmail.com">Email ↗</a>
           <a class="link-pill" href="https://www.linkedin.com/in/ashwini-mishra-998320251/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="link-pill" href="https://drive.google.com/file/d/1cr1WKUK8EONd3mDSZPmN6Qf-GLDcJGDd/view?usp=sharing" target="_blank" rel="noopener">CV ↗</a>
         </div>
       </div>
     </div>
-    <p class="tagline">Product manager who ships. I took an AI startup from zero to revenue, built autonomous agents for SEO, content, and retention, fixed discoverability from scratch, cut support tickets by 84%, and owned the entire funnel from first visit to paid conversion.</p>
+    <p class="tagline">Product manager who ships. I took an AI startup from zero to revenue, built an agentic SEO + content system across 407 pages, shipped autonomous agents for retention and content, and now I'm building voice-first AI and a multi-agent orchestration layer on the side.</p>
     <div class="header-divider"></div>
   </header>
 
@@ -556,13 +625,13 @@
       </div>
 
       <ul class="exp-bullets">
-        <li>Took the product from <span class="metric">zero to first revenue</span>. Ran experiments across onboarding, pricing, and activation. Scaled signups from 0 to <span class="metric">40+/day</span>, visitors from 41 to <span class="metric">5,500/month</span>, cut bounce rate by <span class="metric">22%</span>, and hit <span class="metric">$4,500 MRR</span>.</li>
-        <li>Users were getting irrelevant LinkedIn post suggestions. Built a labeled dataset across 50 industries, improved the ranking logic with the AI team, and shipped a Relevancy Score on the UI. Support tickets dropped from <span class="metric">80 → 13/week</span>, retention grew <span class="metric">12%</span>.</li>
-        <li>No way to know who was about to churn without 2 days of manual work. Built <span class="metric">FunnelMind</span>, a live churn risk tool powered by AI that scores users and drafts personalised re-engagement emails. Detection dropped from <span class="metric">2 days → hours</span>, CLTV improved <span class="metric">10%</span>.</li>
-        <li>Built a <span class="metric">Content Agent</span> that pulls daily signals from Reddit, LinkedIn, Twitter, YouTube, and Substack, writes platform-specific content, and delivers via Slack. Cut content effort by <span class="metric">50%</span>.</li>
-        <li>Used AI to mine high-intent Reddit threads, cluster them by user pain point, and feed insights into content and product decisions. Drove <span class="metric">0→1 organic growth</span> within 2 months.</li>
-        <li>Built a feedback loop using OpenClaw that continuously feeds live ranking and engagement signals into the prioritisation engine. Improved discoverability by <span class="metric">25%</span>.</li>
-        <li>Owned the full user lifecycle (Visitor → Signup → Activation → Paid → Retention). Set up KPIs in Mixpanel and Amplitude, wrote PRDs, and shipped every change alongside ML and engineering.</li>
+        <li>Took the product from <span class="metric">zero to one</span>. Ran A/B experiments across onboarding, pricing, and activation to find the highest-converting flow. Scaled signups from 0 to <span class="metric">40+/day</span>, visitors from 41 to <span class="metric">5,500/month</span>, cut bounce by <span class="metric">22%</span>, hit <span class="metric">$4,500 MRR</span>.</li>
+        <li>Trial-to-paid was stuck at 1% because users were getting irrelevant LinkedIn post suggestions. Re-trained the model with a labeled dataset across 50 industries and shipped a Relevancy Score on the UI. Tickets dropped <span class="metric">80 → 30/week</span>, retention grew <span class="metric">12%</span>, trial-to-paid moved <span class="metric">1% → 3%</span>.</li>
+        <li>Activation was stuck at 5% and churn detection took 2 days of manual work. Built <span class="metric">FunnelMind</span> to track users from signup to first value, score them live, and send personalised re-engagement emails. Detection dropped to hours, CLTV improved <span class="metric">10%</span>, activation rose <span class="metric">5% → 34%</span>.</li>
+        <li>Product decisions were running on stale, week-old data. Built a live feedback loop using <span class="metric">n8n + OpenClaw</span> that continuously analyses page rankings and engagement signals, identifies issues across 4 SEO parameters, and deploys fixes to the codebase. Lifted discoverability by <span class="metric">25%</span>.</li>
+        <li>Content was slow and generic. Built a <span class="metric">Content Agent</span> pulling daily signals from Reddit, LinkedIn, Twitter, YouTube, and Substack to write platform-specific content and deliver via Slack. Cut content effort by <span class="metric">50%</span>.</li>
+        <li>Used AI to mine high-intent Reddit threads, cluster them by user pain point, and feed insights into content and product decisions. Drove <span class="metric">0→1 organic growth</span> in 2 months.</li>
+        <li>Owned the full user lifecycle (Visitor → Signup → Activation → Paid → Retention). Set up KPIs in Mixpanel, built dashboards to analyse drop-offs, wrote PRDs, and shipped iterative improvements with ML and engineering.</li>
       </ul>
 
       <div class="stats-row">
@@ -571,12 +640,12 @@
           <div class="stat-label">MRR</div>
         </div>
         <div class="stat">
-          <div class="stat-number">5,500</div>
-          <div class="stat-label">Monthly Visitors</div>
+          <div class="stat-number">5–34%</div>
+          <div class="stat-label">Activation</div>
         </div>
         <div class="stat">
-          <div class="stat-number">-22%</div>
-          <div class="stat-label">Bounce Rate</div>
+          <div class="stat-number">+25%</div>
+          <div class="stat-label">Discoverability</div>
         </div>
         <div class="stat">
           <div class="stat-number">+12%</div>
@@ -603,9 +672,9 @@
       <div class="project-ai" style="margin-top:16px;margin-bottom:0;"><span class="ai-label">Built with:</span> Conceptualised on ChatGPT · Built using ChatGPT (free) + Claude + YouTube tutorials · Product doc written by Ashwini</div>
 
       <ul class="exp-bullets">
-        <li>Identified a gap in how people practice product management; built and shipped a <span class="metric">full-stack career growth platform</span> with collaborative networking, Kanban project management, portfolio builder, mentorship matching, and real-time job market insights, solo, while working full-time.</li>
-        <li>Acquired <span class="metric">100 real users in 3 weeks</span> through community distribution and messaging experiments; ran <span class="metric">15+ user interviews</span> and turned findings into a prioritised backlog with clear success criteria.</li>
-        <li>Designed onboarding and retention loops using session data; focused on getting users to their first meaningful moment faster, which improved early engagement and return rates.</li>
+        <li>Identified a gap in how freshers practice product management; ran <span class="metric">15+ user interviews</span> with students and placement officers, reframed it as a proof gap, then built and shipped a gamified 4-week cross-functional sprint platform <span class="metric">solo while working full-time</span>. Acquired <span class="metric">100 users in 3 weeks</span> through community distribution.</li>
+        <li>Students had no artifact to prove cross-functional work under pressure; designed a <span class="metric">Smart Portfolio</span> that auto-generates after every sprint with role tags, peer scores, and time-stamped deliverables. <span class="metric">3 users paid for premium</span> on an unfinished product, validating intent.</li>
+        <li>Turned interview findings into a prioritised backlog; designed onboarding and retention loops using session data to pull users to their first meaningful moment faster. Improved early engagement and return rates.</li>
       </ul>
 
       <div class="stats-row" style="grid-template-columns: repeat(3, 1fr);">
@@ -625,6 +694,26 @@
     </div>
   </section>
 
+  <!-- ═══ BUILDING NOW ═══ -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-label">Building Now</span>
+      <span class="section-line"></span>
+    </div>
+
+    <div class="building-banner">
+      <div class="building-label"><span class="live-dot"></span> In Active Development</div>
+      <h3 class="building-title">Voice Family Agent</h3>
+      <p class="building-desc">A voice-first AI surface where one phone call gives anyone access to AI execution — regardless of literacy, age, or tech comfort. A 6-year-old calling parents, an 80-year-old booking medicine, a farmer outsourcing crops to a verified vendor, a CEO scheduling tasks — all through one number, all using the same agent. Skeleton system is built (Android + Bolna voice surface + per-user LLM bindings + planner that decomposes free-text intent). Currently wiring up the planner-to-execution path.</p>
+    </div>
+
+    <div class="building-banner" style="animation-delay: 0.1s;">
+      <div class="building-label"><span class="live-dot"></span> Architecture Phase</div>
+      <h3 class="building-title">Clerk</h3>
+      <p class="building-desc">A multi-party, multi-agent orchestration layer. Born from a real failure observed while building Voice Family Agent — when AI is asked to execute multi-step tasks across multiple agents, it breaks somewhere in the chain. Clerk's job is to hold the chain together: shared memory across agents, group-level consent, persistent state, steering, and interrupts. Currently in architecture and requirements phase; build starts after specs are locked.</p>
+    </div>
+  </section>
+
   <!-- ═══ PROJECTS ═══ -->
   <section class="section">
     <div class="section-header">
@@ -634,9 +723,32 @@
 
     <div class="projects-grid">
 
-      <!-- 01 FunnelMind -->
+      <!-- 01 OpenClaw + n8n -->
       <div class="project">
         <div class="project-number">01</div>
+        <div class="project-name-row">
+          <h2 class="project-name">OpenClaw + n8n</h2>
+          <div class="project-links">
+            <a class="link-pill muted">Internal · OutX.AI</a>
+          </div>
+        </div>
+        <div class="project-context">Built at OutX.AI · Flagship system</div>
+        <div class="project-ai"><span class="ai-label">Built with:</span> n8n (deterministic orchestration, free at scale) · OpenClaw (Claude-based agent runtime) · DataForSEO · SEMrush · Headless browser · Notion API</div>
+        <p class="project-desc">An agentic layer that runs three workloads at OutX. <strong>Layer 1 — SEO revamping:</strong> 407 pages on the site; every day the system selects 30 URLs and revamps them across 4 SEO parameters (on-page, technical, content, off-page). Three specialised agents inside OpenClaw — Engineer (technical fixes, schema, alt tags, Core Web Vitals), Content (depth, intent match, humanisation — pages under 10% AI-detection rank meaningfully better), Deployment (ships fixes as PRs). Self-healing loop. <strong>Layer 2 — Content execution</strong> across 8 platforms (Reddit, LinkedIn, Twitter, Substack, Indie Hackers, Dev.to, Meta, YouTube), routed to Notion for human review. <strong>Layer 3 — Backend metric tracking</strong> for signups, watchlists, installs. Lifted discoverability by 25%, cut content effort by 50%.</p>
+        <div class="tags">
+          <span class="tag">Agentic AI</span>
+          <span class="tag">Multi-Agent Orchestration</span>
+          <span class="tag">SEO Automation</span>
+          <span class="tag">n8n</span>
+          <span class="tag">Claude Agents</span>
+          <span class="tag">DataForSEO</span>
+          <span class="tag">Self-Healing Loop</span>
+        </div>
+      </div>
+
+      <!-- 02 FunnelMind -->
+      <div class="project">
+        <div class="project-number">02</div>
         <div class="project-name-row">
           <h2 class="project-name">FunnelMind Retention Agent</h2>
           <div class="project-links">
@@ -645,20 +757,21 @@
           </div>
         </div>
         <div class="project-context">Built at OutX.AI</div>
-        <div class="project-ai"><span class="ai-label">Built with:</span> Claude Code · Claude API for personalised email drafts · Conceptualised and scoped on Claude</div>
-        <p class="project-desc">An AI-powered growth & retention intelligence tool. Tracks full-funnel drop-offs, scores churn risk live using a 4-signal model (funnel stage, recency, engagement depth, plan type), and uses Claude to draft personalised re-engagement emails. Reduced churn detection from 2 days to hours.</p>
+        <div class="project-ai"><span class="ai-label">Built with:</span> Mixpanel → Supabase → Next.js dashboard · Claude API for personalised email drafts · Conceptualised and scoped on Claude</div>
+        <p class="project-desc">An AI-powered growth & retention intelligence tool. Tracks full-funnel drop-offs, scores churn risk live using a 4-signal model (funnel stage, recency, engagement depth, plan type), and uses Claude to draft personalised re-engagement emails. Reduced churn detection from 2 days to hours, lifted activation from 5% to 34%, improved CLTV by 10%. Completely separate from OpenClaw — different stack, different job.</p>
         <div class="tags">
           <span class="tag">AI Agent</span>
           <span class="tag">Retention</span>
-          <span class="tag">Analytics</span>
           <span class="tag">Churn Prediction</span>
+          <span class="tag">Mixpanel</span>
+          <span class="tag">Supabase</span>
           <span class="tag">Claude API</span>
         </div>
       </div>
 
-      <!-- 02 OutX SEO Agent -->
+      <!-- 03 OutX SEO Agent -->
       <div class="project">
-        <div class="project-number">02</div>
+        <div class="project-number">03</div>
         <div class="project-name-row">
           <h2 class="project-name">OutX SEO Agent</h2>
           <div class="project-links">
@@ -676,13 +789,12 @@
           <span class="tag">DataForSEO</span>
           <span class="tag">Notion API</span>
           <span class="tag">Railway</span>
-          <span class="tag">Python</span>
         </div>
       </div>
 
-      <!-- 03 Content Agent -->
+      <!-- 04 Content Agent -->
       <div class="project">
-        <div class="project-number">03</div>
+        <div class="project-number">04</div>
         <div class="project-name-row">
           <h2 class="project-name">Content Agent</h2>
           <div class="project-links">
@@ -702,9 +814,29 @@
         </div>
       </div>
 
-      <!-- 04 Lila VIZ -->
+      <!-- 05 Reddit Discovery Engine -->
       <div class="project">
-        <div class="project-number">04</div>
+        <div class="project-number">05</div>
+        <div class="project-name-row">
+          <h2 class="project-name">Reddit Discovery Engine</h2>
+          <div class="project-links">
+            <a class="link-pill muted">Internal · OutX.AI</a>
+          </div>
+        </div>
+        <div class="project-context">Built at OutX.AI</div>
+        <div class="project-ai"><span class="ai-label">Built with:</span> AI clustering · Reddit API · n8n · Custom intent classifiers</div>
+        <p class="project-desc">A discovery tool that mines Reddit for high-intent threads, clusters them by user pain point, and feeds the insights into content and product decisions. Built when OutX had zero discoverability at launch — solved the cold-start problem. Drove 0→1 organic growth within 2 months.</p>
+        <div class="tags">
+          <span class="tag">Reddit Mining</span>
+          <span class="tag">Intent Classification</span>
+          <span class="tag">Clustering</span>
+          <span class="tag">0→1 Growth</span>
+        </div>
+      </div>
+
+      <!-- 06 Lila VIZ -->
+      <div class="project">
+        <div class="project-number">06</div>
         <div class="project-name-row">
           <h2 class="project-name">Lila VIZ</h2>
           <div class="project-links">
@@ -713,7 +845,7 @@
           </div>
         </div>
         <div class="project-ai"><span class="ai-label">Built with:</span> Claude Code · Conceptualised and designed on Claude</div>
-        <p class="project-desc">A level design visualizer, a creative tool for mapping, visualizing, and iterating on game level layouts. Built for designers and developers who think spatially, reducing back-and-forth between design and engineering.</p>
+        <p class="project-desc">A level design visualizer — a creative tool for mapping, visualizing, and iterating on game level layouts. Built for designers and developers who think spatially, reducing back-and-forth between design and engineering.</p>
         <div class="tags">
           <span class="tag">Visualizer</span>
           <span class="tag">Game Design</span>
@@ -736,14 +868,14 @@
       <div class="info-card">
         <div class="info-card-label">Education</div>
         <div class="info-card-title">Thapar Institute of Engineering & Technology</div>
-        <div class="info-card-sub">Bachelor of Engineering · 2021 – 2025</div>
+        <div class="info-card-sub">Bachelor of Engineering, Electronics & Communication · Nov 2021 – July 2025</div>
         <div class="info-card-detail">Patiala, Punjab</div>
       </div>
       <div class="info-card">
         <div class="info-card-label">Certification</div>
         <div class="info-card-title">NextLeap PM Fellowship</div>
         <div class="info-card-sub">Systems Thinking & Outcome Mapping · Nov 2025</div>
-        <div class="info-card-detail">KPI trees, prioritisation trade-offs, scoping vague product problems into focused, measurable initiatives.</div>
+        <div class="info-card-detail">KPI trees linking business goals to user behaviour signals; scoping vague product problems into focused, measurable initiatives.</div>
       </div>
     </div>
   </section>
@@ -759,35 +891,41 @@
       <div class="skill-group">
         <div class="skill-group-title">Product</div>
         <div class="tags">
-          <span class="tag">Product Strategy</span>
-          <span class="tag">Roadmap Planning</span>
-          <span class="tag">GTM</span>
           <span class="tag">PRD Writing</span>
+          <span class="tag">Roadmap Planning</span>
           <span class="tag">A/B Testing</span>
-          <span class="tag">Sprint Planning</span>
+          <span class="tag">Funnel Analysis</span>
           <span class="tag">User Research</span>
+          <span class="tag">Jira</span>
+          <span class="tag">Figma</span>
+          <span class="tag">LinkedIn Sales Nav</span>
+          <span class="tag">Google Search Console</span>
+          <span class="tag">Hermes AI</span>
         </div>
       </div>
       <div class="skill-group">
         <div class="skill-group-title">AI & Automation</div>
         <div class="tags">
-          <span class="tag">AI Products</span>
-          <span class="tag">Prompt Design</span>
-          <span class="tag">Model Eval</span>
-          <span class="tag">OpenAI APIs</span>
-          <span class="tag">Claude API</span>
+          <span class="tag">Claude Code</span>
+          <span class="tag">OpenClaw</span>
           <span class="tag">n8n</span>
+          <span class="tag">Prompt Design</span>
+          <span class="tag">Model Evaluation</span>
+          <span class="tag">Human-in-the-Loop Labeling</span>
+          <span class="tag">Multi-Agent Orchestration</span>
+          <span class="tag">Voice AI (Bolna)</span>
           <span class="tag">Railway</span>
         </div>
       </div>
       <div class="skill-group">
         <div class="skill-group-title">Analytics</div>
         <div class="tags">
+          <span class="tag">SQL</span>
+          <span class="tag">Cohort Analysis</span>
+          <span class="tag">Churn Modeling</span>
+          <span class="tag">KPI Trees</span>
           <span class="tag">Mixpanel</span>
           <span class="tag">Amplitude</span>
-          <span class="tag">Funnel Tracking</span>
-          <span class="tag">Cohort Analysis</span>
-          <span class="tag">Power BI</span>
           <span class="tag">Tableau</span>
         </div>
       </div>
@@ -797,6 +935,16 @@
   <!-- ═══ FOOTER ═══ -->
   <footer>
     <div class="footer-inner">
-      <p class="footer-text">Ashwini Mishra · Product Manager · <a>mishrash662@gmail.com</a> · +91 9289439376</p>
+      <p class="footer-text">Ashwini Mishra · Product Manager · <a href="mailto:mishrash662@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border);">mishrash662@gmail.com</a> · +91 9289439376</p>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/ashwini-mishra-998320251/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1cr1WKUK8EONd3mDSZPmN6Qf-GLDcJGDd/view?usp=sharing" target="_blank" rel="noopener">CV</a>
+        <a href="mailto:mishrash662@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
