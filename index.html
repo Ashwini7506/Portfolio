@@ -1,950 +1,514 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Ashwini Mishra | Product Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e5e2e1",
+                        "primary": "#000000",
+                        "surface-bright": "#fdf8f8",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-tertiary-fixed-variant": "#234e42",
+                        "tertiary-fixed-dim": "#a2d0bf",
+                        "tertiary-container": "#002018",
+                        "surface-container-high": "#ebe7e6",
+                        "surface-variant": "#e5e2e1",
+                        "error": "#ba1a1a",
+                        "surface-container": "#f1edec",
+                        "inverse-primary": "#c8c6c5",
+                        "on-background": "#1c1b1b",
+                        "background": "#fdf8f8",
+                        "on-tertiary-fixed": "#002018",
+                        "on-secondary-fixed": "#001e2f",
+                        "surface-dim": "#ddd9d8",
+                        "tertiary-fixed": "#beeddb",
+                        "outline": "#747878",
+                        "secondary": "#006492",
+                        "on-tertiary-container": "#618d7e",
+                        "on-surface": "#1c1b1b",
+                        "on-primary-container": "#858383",
+                        "on-secondary-fixed-variant": "#004b6f",
+                        "surface-container-low": "#f7f3f2",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#58bcfd",
+                        "secondary-fixed-dim": "#8ccdff",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "secondary-fixed": "#cae6ff",
+                        "surface": "#fdf8f8",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "outline-variant": "#c4c7c7",
+                        "surface-tint": "#5f5e5e",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary-container": "#004a6d",
+                        "primary-container": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474746",
+                        "inverse-surface": "#313030",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#000000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Outfit"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "display-xl": ["Outfit"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
 <style>
-  :root {
-    --bg: #f6f5f0;
-    --bg-card: #efeee8;
-    --text: #141210;
-    --muted: #78756c;
-    --accent: #c4572a;
-    --accent-soft: rgba(196,87,42,0.08);
-    --border: #dddbd3;
-    --tag-bg: #e6e4dc;
-    --tag-text: #5a5850;
-    --white: #fdfcf9;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Satoshi', sans-serif;
-    font-weight: 400;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .container { max-width: 820px; margin: 0 auto; padding: 0 36px; }
-
-  /* ── NOISE OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 200px;
-    z-index: 9999;
-  }
-
-  /* ── HEADER ── */
-  header {
-    padding: 80px 0 56px;
-    animation: fadeUp 0.8s ease both;
-  }
-
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .name {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(2.6rem, 6vw, 4rem);
-    font-weight: 400;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-  }
-
-  .name i { font-style: italic; color: var(--accent); }
-
-  .header-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border: 1px solid var(--border);
-    padding: 8px 16px;
-    border-radius: 100px;
-    margin-top: 8px;
-  }
-
-  .header-badge .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s ease infinite;
-  }
-
-  .tagline {
-    margin-top: 32px;
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--muted);
-    max-width: 560px;
-    line-height: 1.75;
-    animation: fadeUp 0.8s 0.1s ease both;
-  }
-
-  .header-divider {
-    margin-top: 48px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
-  }
-
-  /* ── SECTIONS ── */
-  .section { padding: 56px 0; }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-
-  .section-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* ── EXPERIENCE CARD ── */
-  .exp-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 36px;
-    margin-bottom: 24px;
-    animation: fadeUp 0.7s ease both;
-    transition: box-shadow 0.3s ease;
-  }
-
-  .exp-card:hover {
-    box-shadow: 0 8px 32px rgba(20,18,16,0.06);
-  }
-
-  .exp-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-
-  .exp-company {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .exp-period {
-    font-size: 0.75rem;
-    color: var(--muted);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    padding-top: 6px;
-  }
-
-  .exp-role {
-    font-size: 0.85rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
-
-  .exp-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .exp-bullets li {
-    position: relative;
-    padding-left: 20px;
-    font-size: 0.88rem;
-    color: var(--text);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  .exp-bullets li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0.4;
-  }
-
-  .metric {
-    display: inline;
-    font-weight: 500;
-    color: var(--accent);
-  }
-
-  /* ── STATS ROW ── */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-top: 28px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-number {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.6rem;
-    color: var(--accent);
-    line-height: 1.2;
-  }
-
-  .stat-label {
-    font-size: 0.65rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    margin-top: 4px;
-  }
-
-  /* ── PROJECT CARDS ── */
-  .projects-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .project {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px 36px;
-    animation: fadeUp 0.6s ease both;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
-
-  .project:hover {
-    box-shadow: 0 8px 32px rgba(20,18,16,0.06);
-    transform: translateY(-2px);
-  }
-
-  .project-number {
-    font-size: 0.65rem;
-    color: var(--muted);
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    margin-bottom: 10px;
-  }
-
-  .project-name-row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-
-  .project-name {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(1.3rem, 3vw, 1.65rem);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-  }
-
-  .project-links {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .link-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--text);
-    border: 1px solid var(--border);
-    padding: 5px 14px;
-    border-radius: 100px;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    font-family: 'Satoshi', sans-serif;
-  }
-
-  .link-pill:hover {
-    background: var(--accent);
-    color: var(--white);
-    border-color: var(--accent);
-  }
-
-  .link-pill.muted {
-    color: var(--muted);
-    cursor: default;
-  }
-
-  .link-pill.muted:hover {
-    background: transparent;
-    color: var(--muted);
-    border-color: var(--border);
-  }
-
-  .link-pill.in-dev {
-    background: var(--accent-soft);
-    border-color: rgba(196,87,42,0.25);
-    color: var(--accent);
-  }
-
-  .link-pill.in-dev:hover {
-    background: var(--accent-soft);
-    border-color: rgba(196,87,42,0.25);
-    color: var(--accent);
-    cursor: default;
-  }
-
-  .project-context {
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
-  }
-
-  .project-desc {
-    font-size: 0.88rem;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 620px;
-    margin-bottom: 16px;
-    font-weight: 300;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .tag {
-    font-size: 0.66rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--tag-text);
-    background: var(--tag-bg);
-    padding: 5px 12px;
-    border-radius: 100px;
-  }
-
-  .project-ai {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-wrap: wrap;
-    font-size: 0.72rem;
-    color: var(--muted);
-    margin-bottom: 14px;
-    font-weight: 400;
-    line-height: 1.6;
-  }
-
-  .project-ai .ai-label {
-    font-weight: 600;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 0.65rem;
-    margin-right: 2px;
-  }
-
-  /* ── BUILDING-NOW BANNER ── */
-  .building-banner {
-    background: linear-gradient(135deg, rgba(196,87,42,0.06) 0%, rgba(196,87,42,0.02) 100%);
-    border: 1px solid rgba(196,87,42,0.18);
-    border-radius: 16px;
-    padding: 28px 32px;
-    margin-bottom: 24px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .building-banner::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
-  }
-
-  .building-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-
-  .building-label .live-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 1.6s ease infinite;
-  }
-
-  .building-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.35rem;
-    margin-bottom: 6px;
-    letter-spacing: -0.02em;
-  }
-
-  .building-desc {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.7;
-    font-weight: 300;
-    max-width: 640px;
-  }
-
-  /* ── EDUCATION / CERTS ── */
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .info-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 28px;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .info-card-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-
-  .info-card-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.15rem;
-    margin-bottom: 4px;
-  }
-
-  .info-card-sub {
-    font-size: 0.8rem;
-    color: var(--muted);
-    font-weight: 300;
-  }
-
-  .info-card-detail {
-    font-size: 0.78rem;
-    color: var(--muted);
-    margin-top: 8px;
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  /* ── SKILLS ── */
-  .skills-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-  }
-
-  .skill-group {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .skill-group-title {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 14px;
-  }
-
-  .skill-group .tags { gap: 5px; }
-
-  /* ── FOOTER ── */
-  footer {
-    padding: 48px 0 64px;
-    animation: fadeUp 0.6s 0.4s ease both;
-  }
-
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-  }
-
-  .footer-text {
-    font-size: 0.78rem;
-    color: var(--muted);
-    font-weight: 300;
-  }
-
-  .footer-links { display: flex; gap: 20px; }
-
-  .footer-links a {
-    font-size: 0.78rem;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    font-weight: 500;
-    transition: color 0.25s;
-  }
-
-  .footer-links a:hover { color: var(--accent); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  .project:nth-child(1) { animation-delay: 0.1s; }
-  .project:nth-child(2) { animation-delay: 0.18s; }
-  .project:nth-child(3) { animation-delay: 0.26s; }
-  .project:nth-child(4) { animation-delay: 0.34s; }
-  .project:nth-child(5) { animation-delay: 0.42s; }
-  .project:nth-child(6) { animation-delay: 0.50s; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 640px) {
-    .container { padding: 0 20px; }
-    header { padding: 56px 0 40px; }
-    .header-top { flex-direction: column; }
-    .stats-row { grid-template-columns: repeat(2, 1fr); }
-    .info-grid { grid-template-columns: 1fr; }
-    .skills-section { grid-template-columns: 1fr; }
-    .section { padding: 40px 0; }
-    .exp-card { padding: 24px; }
-    .project { padding: 24px; }
-    .building-banner { padding: 22px 24px; }
-  }
-</style>
+        body {
+            background-color: #fdf8f8;
+            color: #1c1b1b;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-shadow {
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.04);
+        }
+        .dot-grid {
+            background-image: radial-gradient(#e9ecef 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
 </head>
-<body>
-
-<div class="container">
-
-  <!-- ═══ HEADER ═══ -->
-  <header>
-    <div class="header-top">
-      <div>
-        <h1 class="name">Ashwini<br><i>Mishra</i></h1>
-      </div>
-      <div>
-        <span class="header-badge"><span class="dot"></span> Open to Opportunities</span>
-        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;justify-content:flex-end;">
-          <a class="link-pill" href="mailto:mishrash662@gmail.com">Email ↗</a>
-          <a class="link-pill" href="https://www.linkedin.com/in/ashwini-mishra-998320251/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="link-pill" href="https://drive.google.com/file/d/1cr1WKUK8EONd3mDSZPmN6Qf-GLDcJGDd/view?usp=sharing" target="_blank" rel="noopener">CV ↗</a>
-        </div>
-      </div>
-    </div>
-    <p class="tagline">Product manager who ships. I took an AI startup from zero to revenue, built an agentic SEO + content system across 407 pages, shipped autonomous agents for retention and content, and now I'm building voice-first AI and a multi-agent orchestration layer on the side.</p>
-    <div class="header-divider"></div>
-  </header>
-
-  <!-- ═══ EXPERIENCE ═══ -->
-  <section class="section">
-    <div class="section-header">
-      <span class="section-label">Experience</span>
-      <span class="section-line"></span>
-    </div>
-
-    <!-- Qodex.AI -->
-    <div class="exp-card">
-      <div class="exp-top">
-        <div>
-          <div class="exp-company"><a href="https://outx.ai" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border);transition:border-color 0.25s;">Qodex.AI</a> <span style="color:var(--muted);font-family:'Satoshi',sans-serif;font-size:0.85rem;font-weight:300;">(OutX.AI)</span></div>
-          <div class="exp-role">Associate Product Manager, AI, Growth & Conversion</div>
-        </div>
-        <div class="exp-period">May 2025 – Present · Remote</div>
-      </div>
-
-      <ul class="exp-bullets">
-        <li>Took the product from <span class="metric">zero to one</span>. Ran A/B experiments across onboarding, pricing, and activation to find the highest-converting flow. Scaled signups from 0 to <span class="metric">40+/day</span>, visitors from 41 to <span class="metric">5,500/month</span>, cut bounce by <span class="metric">22%</span>, hit <span class="metric">$4,500 MRR</span>.</li>
-        <li>Trial-to-paid was stuck at 1% because users were getting irrelevant LinkedIn post suggestions. Re-trained the model with a labeled dataset across 50 industries and shipped a Relevancy Score on the UI. Tickets dropped <span class="metric">80 → 30/week</span>, retention grew <span class="metric">12%</span>, trial-to-paid moved <span class="metric">1% → 3%</span>.</li>
-        <li>Activation was stuck at 5% and churn detection took 2 days of manual work. Built <span class="metric">FunnelMind</span> to track users from signup to first value, score them live, and send personalised re-engagement emails. Detection dropped to hours, CLTV improved <span class="metric">10%</span>, activation rose <span class="metric">5% → 34%</span>.</li>
-        <li>Product decisions were running on stale, week-old data. Built a live feedback loop using <span class="metric">n8n + OpenClaw</span> that continuously analyses page rankings and engagement signals, identifies issues across 4 SEO parameters, and deploys fixes to the codebase. Lifted discoverability by <span class="metric">25%</span>.</li>
-        <li>Content was slow and generic. Built a <span class="metric">Content Agent</span> pulling daily signals from Reddit, LinkedIn, Twitter, YouTube, and Substack to write platform-specific content and deliver via Slack. Cut content effort by <span class="metric">50%</span>.</li>
-        <li>Used AI to mine high-intent Reddit threads, cluster them by user pain point, and feed insights into content and product decisions. Drove <span class="metric">0→1 organic growth</span> in 2 months.</li>
-        <li>Owned the full user lifecycle (Visitor → Signup → Activation → Paid → Retention). Set up KPIs in Mixpanel, built dashboards to analyse drop-offs, wrote PRDs, and shipped iterative improvements with ML and engineering.</li>
-      </ul>
-
-      <div class="stats-row">
-        <div class="stat">
-          <div class="stat-number">$4.5k</div>
-          <div class="stat-label">MRR</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">5–34%</div>
-          <div class="stat-label">Activation</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">+25%</div>
-          <div class="stat-label">Discoverability</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">+12%</div>
-          <div class="stat-label">Retention</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SkillUp -->
-    <div class="exp-card" style="animation-delay: 0.1s;">
-      <div class="exp-top">
-        <div>
-          <div class="exp-company"><a href="https://skillup-xi.vercel.app/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border);transition:border-color 0.25s;">SkillUp</a></div>
-          <div class="exp-role">Founder, Product, Growth & Systems (Side Project)</div>
-          <div style="display:flex;gap:8px;margin-top:4px;margin-bottom:8px;flex-wrap:wrap;">
-            <a class="link-pill" href="https://skillup-xi.vercel.app/" target="_blank" rel="noopener">Live ↗</a>
-            <a class="link-pill" href="https://github.com/Ashwini7506/skillup" target="_blank" rel="noopener">GitHub ↗</a>
-            <a class="link-pill" href="https://docs.google.com/document/d/1k0ZoMbjOdqF93BKjwt4tX6iL77SxnJfIDEfAM-vAMmk/edit?usp=sharing" target="_blank" rel="noopener">Product Doc ↗</a>
-          </div>
-        </div>
-        <div class="exp-period">Jul 2025 – Nov 2025 · Remote</div>
-      </div>
-
-      <div class="project-ai" style="margin-top:16px;margin-bottom:0;"><span class="ai-label">Built with:</span> Conceptualised on ChatGPT · Built using ChatGPT (free) + Claude + YouTube tutorials · Product doc written by Ashwini</div>
-
-      <ul class="exp-bullets">
-        <li>Identified a gap in how freshers practice product management; ran <span class="metric">15+ user interviews</span> with students and placement officers, reframed it as a proof gap, then built and shipped a gamified 4-week cross-functional sprint platform <span class="metric">solo while working full-time</span>. Acquired <span class="metric">100 users in 3 weeks</span> through community distribution.</li>
-        <li>Students had no artifact to prove cross-functional work under pressure; designed a <span class="metric">Smart Portfolio</span> that auto-generates after every sprint with role tags, peer scores, and time-stamped deliverables. <span class="metric">3 users paid for premium</span> on an unfinished product, validating intent.</li>
-        <li>Turned interview findings into a prioritised backlog; designed onboarding and retention loops using session data to pull users to their first meaningful moment faster. Improved early engagement and return rates.</li>
-      </ul>
-
-      <div class="stats-row" style="grid-template-columns: repeat(3, 1fr);">
-        <div class="stat">
-          <div class="stat-number">100</div>
-          <div class="stat-label">Users in 3 Weeks</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">15+</div>
-          <div class="stat-label">User Interviews</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">Solo</div>
-          <div class="stat-label">Built While FT</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ BUILDING NOW ═══ -->
-  <section class="section">
-    <div class="section-header">
-      <span class="section-label">Building Now</span>
-      <span class="section-line"></span>
-    </div>
-
-    <div class="building-banner">
-      <div class="building-label"><span class="live-dot"></span> In Active Development</div>
-      <h3 class="building-title">Voice Family Agent</h3>
-      <p class="building-desc">A voice-first AI surface where one phone call gives anyone access to AI execution — regardless of literacy, age, or tech comfort. A 6-year-old calling parents, an 80-year-old booking medicine, a farmer outsourcing crops to a verified vendor, a CEO scheduling tasks — all through one number, all using the same agent. Skeleton system is built (Android + Bolna voice surface + per-user LLM bindings + planner that decomposes free-text intent). Currently wiring up the planner-to-execution path.</p>
-    </div>
-
-    <div class="building-banner" style="animation-delay: 0.1s;">
-      <div class="building-label"><span class="live-dot"></span> Architecture Phase</div>
-      <h3 class="building-title">Clerk</h3>
-      <p class="building-desc">A multi-party, multi-agent orchestration layer. Born from a real failure observed while building Voice Family Agent — when AI is asked to execute multi-step tasks across multiple agents, it breaks somewhere in the chain. Clerk's job is to hold the chain together: shared memory across agents, group-level consent, persistent state, steering, and interrupts. Currently in architecture and requirements phase; build starts after specs are locked.</p>
-    </div>
-  </section>
-
-  <!-- ═══ PROJECTS ═══ -->
-  <section class="section">
-    <div class="section-header">
-      <span class="section-label">Selected Work</span>
-      <span class="section-line"></span>
-    </div>
-
-    <div class="projects-grid">
-
-      <!-- 01 OpenClaw + n8n -->
-      <div class="project">
-        <div class="project-number">01</div>
-        <div class="project-name-row">
-          <h2 class="project-name">OpenClaw + n8n</h2>
-          <div class="project-links">
-            <a class="link-pill muted">Internal · OutX.AI</a>
-          </div>
-        </div>
-        <div class="project-context">Built at OutX.AI · Flagship system</div>
-        <div class="project-ai"><span class="ai-label">Built with:</span> n8n (deterministic orchestration, free at scale) · OpenClaw (Claude-based agent runtime) · DataForSEO · SEMrush · Headless browser · Notion API</div>
-        <p class="project-desc">An agentic layer that runs three workloads at OutX. <strong>Layer 1 — SEO revamping:</strong> 407 pages on the site; every day the system selects 30 URLs and revamps them across 4 SEO parameters (on-page, technical, content, off-page). Three specialised agents inside OpenClaw — Engineer (technical fixes, schema, alt tags, Core Web Vitals), Content (depth, intent match, humanisation — pages under 10% AI-detection rank meaningfully better), Deployment (ships fixes as PRs). Self-healing loop. <strong>Layer 2 — Content execution</strong> across 8 platforms (Reddit, LinkedIn, Twitter, Substack, Indie Hackers, Dev.to, Meta, YouTube), routed to Notion for human review. <strong>Layer 3 — Backend metric tracking</strong> for signups, watchlists, installs. Lifted discoverability by 25%, cut content effort by 50%.</p>
-        <div class="tags">
-          <span class="tag">Agentic AI</span>
-          <span class="tag">Multi-Agent Orchestration</span>
-          <span class="tag">SEO Automation</span>
-          <span class="tag">n8n</span>
-          <span class="tag">Claude Agents</span>
-          <span class="tag">DataForSEO</span>
-          <span class="tag">Self-Healing Loop</span>
-        </div>
-      </div>
-
-      <!-- 02 FunnelMind -->
-      <div class="project">
-        <div class="project-number">02</div>
-        <div class="project-name-row">
-          <h2 class="project-name">FunnelMind Retention Agent</h2>
-          <div class="project-links">
-            <a class="link-pill" href="https://retention-agent.vercel.app/" target="_blank" rel="noopener">Live ↗</a>
-            <a class="link-pill" href="https://github.com/Ashwini7506/retention-agent" target="_blank" rel="noopener">GitHub ↗</a>
-          </div>
-        </div>
-        <div class="project-context">Built at OutX.AI</div>
-        <div class="project-ai"><span class="ai-label">Built with:</span> Mixpanel → Supabase → Next.js dashboard · Claude API for personalised email drafts · Conceptualised and scoped on Claude</div>
-        <p class="project-desc">An AI-powered growth & retention intelligence tool. Tracks full-funnel drop-offs, scores churn risk live using a 4-signal model (funnel stage, recency, engagement depth, plan type), and uses Claude to draft personalised re-engagement emails. Reduced churn detection from 2 days to hours, lifted activation from 5% to 34%, improved CLTV by 10%. Completely separate from OpenClaw — different stack, different job.</p>
-        <div class="tags">
-          <span class="tag">AI Agent</span>
-          <span class="tag">Retention</span>
-          <span class="tag">Churn Prediction</span>
-          <span class="tag">Mixpanel</span>
-          <span class="tag">Supabase</span>
-          <span class="tag">Claude API</span>
-        </div>
-      </div>
-
-      <!-- 03 OutX SEO Agent -->
-      <div class="project">
-        <div class="project-number">03</div>
-        <div class="project-name-row">
-          <h2 class="project-name">OutX SEO Agent</h2>
-          <div class="project-links">
-            <a class="link-pill" href="https://outx-content-agent.vercel.app/" target="_blank" rel="noopener">Live ↗</a>
-            <a class="link-pill" href="https://github.com/Ashwini7506/outx-content-agent" target="_blank" rel="noopener">GitHub ↗</a>
-          </div>
-        </div>
-        <div class="project-context">Built at OutX.AI</div>
-        <div class="project-ai"><span class="ai-label">Built with:</span> Claude Code · Claude Haiku via OpenRouter for prompt-driven audits · DataForSEO API · OutX MCP for Reddit thread mining · Notion API for agent-to-agent handoff</div>
-        <p class="project-desc">A fully autonomous AI agent that runs a 5-phase weekly SEO audit. Pulls ranked keywords, rewrites underperforming metas, runs keyword gap analysis against 5 competitors, generates content improvement briefs, detects cannibalization, and audits AI/LLM visibility. Hands off tasks directly to the Content Agent via a shared Notion database. Replaces 15–20 hours/week of manual SEO work with zero human input.</p>
-        <div class="tags">
-          <span class="tag">Autonomous Agent</span>
-          <span class="tag">SEO</span>
-          <span class="tag">Claude Haiku</span>
-          <span class="tag">DataForSEO</span>
-          <span class="tag">Notion API</span>
-          <span class="tag">Railway</span>
-        </div>
-      </div>
-
-      <!-- 04 Content Agent -->
-      <div class="project">
-        <div class="project-number">04</div>
-        <div class="project-name-row">
-          <h2 class="project-name">Content Agent</h2>
-          <div class="project-links">
-            <a class="link-pill" href="https://outx-content-agent.vercel.app/" target="_blank" rel="noopener">Live ↗</a>
-            <a class="link-pill" href="https://github.com/Ashwini7506/outx-content-agent" target="_blank" rel="noopener">GitHub ↗</a>
-          </div>
-        </div>
-        <div class="project-context">Built at OutX.AI</div>
-        <div class="project-ai"><span class="ai-label">Built with:</span> Claude Code · Claude API for content generation · OutX MCP for Reddit, LinkedIn, Twitter signal ingestion · Railway cron · Slack API</div>
-        <p class="project-desc">A cron-triggered AI content pipeline on Railway. Every day at 12pm IST, it researches keywords and intent across Reddit, LinkedIn, Twitter, YouTube, and Substack, generates a full week of platform-specific content, aggregates engagement data, runs analysis on what worked, and delivers a Slack summary with actionable suggestions. Cut content effort by 50%.</p>
-        <div class="tags">
-          <span class="tag">AI Pipeline</span>
-          <span class="tag">Content Strategy</span>
-          <span class="tag">Multi-Platform</span>
-          <span class="tag">Railway</span>
-          <span class="tag">Slack</span>
-        </div>
-      </div>
-
-      <!-- 05 Reddit Discovery Engine -->
-      <div class="project">
-        <div class="project-number">05</div>
-        <div class="project-name-row">
-          <h2 class="project-name">Reddit Discovery Engine</h2>
-          <div class="project-links">
-            <a class="link-pill muted">Internal · OutX.AI</a>
-          </div>
-        </div>
-        <div class="project-context">Built at OutX.AI</div>
-        <div class="project-ai"><span class="ai-label">Built with:</span> AI clustering · Reddit API · n8n · Custom intent classifiers</div>
-        <p class="project-desc">A discovery tool that mines Reddit for high-intent threads, clusters them by user pain point, and feeds the insights into content and product decisions. Built when OutX had zero discoverability at launch — solved the cold-start problem. Drove 0→1 organic growth within 2 months.</p>
-        <div class="tags">
-          <span class="tag">Reddit Mining</span>
-          <span class="tag">Intent Classification</span>
-          <span class="tag">Clustering</span>
-          <span class="tag">0→1 Growth</span>
-        </div>
-      </div>
-
-      <!-- 06 Lila VIZ -->
-      <div class="project">
-        <div class="project-number">06</div>
-        <div class="project-name-row">
-          <h2 class="project-name">Lila VIZ</h2>
-          <div class="project-links">
-            <a class="link-pill" href="https://lila-black.vercel.app/" target="_blank" rel="noopener">Live ↗</a>
-            <a class="link-pill" href="https://github.com/Ashwini7506/lila-black" target="_blank" rel="noopener">GitHub ↗</a>
-          </div>
-        </div>
-        <div class="project-ai"><span class="ai-label">Built with:</span> Claude Code · Conceptualised and designed on Claude</div>
-        <p class="project-desc">A level design visualizer — a creative tool for mapping, visualizing, and iterating on game level layouts. Built for designers and developers who think spatially, reducing back-and-forth between design and engineering.</p>
-        <div class="tags">
-          <span class="tag">Visualizer</span>
-          <span class="tag">Game Design</span>
-          <span class="tag">React</span>
-          <span class="tag">Node.js</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══ EDUCATION & CERTIFICATION ═══ -->
-  <section class="section">
-    <div class="section-header">
-      <span class="section-label">Education & Certifications</span>
-      <span class="section-line"></span>
-    </div>
-
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-card-label">Education</div>
-        <div class="info-card-title">Thapar Institute of Engineering & Technology</div>
-        <div class="info-card-sub">Bachelor of Engineering, Electronics & Communication · Nov 2021 – July 2025</div>
-        <div class="info-card-detail">Patiala, Punjab</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label">Certification</div>
-        <div class="info-card-title">NextLeap PM Fellowship</div>
-        <div class="info-card-sub">Systems Thinking & Outcome Mapping · Nov 2025</div>
-        <div class="info-card-detail">KPI trees linking business goals to user behaviour signals; scoping vague product problems into focused, measurable initiatives.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SKILLS ═══ -->
-  <section class="section">
-    <div class="section-header">
-      <span class="section-label">Skills & Tools</span>
-      <span class="section-line"></span>
-    </div>
-
-    <div class="skills-section">
-      <div class="skill-group">
-        <div class="skill-group-title">Product</div>
-        <div class="tags">
-          <span class="tag">PRD Writing</span>
-          <span class="tag">Roadmap Planning</span>
-          <span class="tag">A/B Testing</span>
-          <span class="tag">Funnel Analysis</span>
-          <span class="tag">User Research</span>
-          <span class="tag">Jira</span>
-          <span class="tag">Figma</span>
-          <span class="tag">LinkedIn Sales Nav</span>
-          <span class="tag">Google Search Console</span>
-          <span class="tag">Hermes AI</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">AI & Automation</div>
-        <div class="tags">
-          <span class="tag">Claude Code</span>
-          <span class="tag">OpenClaw</span>
-          <span class="tag">n8n</span>
-          <span class="tag">Prompt Design</span>
-          <span class="tag">Model Evaluation</span>
-          <span class="tag">Human-in-the-Loop Labeling</span>
-          <span class="tag">Multi-Agent Orchestration</span>
-          <span class="tag">Voice AI (Bolna)</span>
-          <span class="tag">Railway</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Analytics</div>
-        <div class="tags">
-          <span class="tag">SQL</span>
-          <span class="tag">Cohort Analysis</span>
-          <span class="tag">Churn Modeling</span>
-          <span class="tag">KPI Trees</span>
-          <span class="tag">Mixpanel</span>
-          <span class="tag">Amplitude</span>
-          <span class="tag">Tableau</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FOOTER ═══ -->
-  <footer>
-    <div class="footer-inner">
-      <p class="footer-text">Ashwini Mishra · Product Manager · <a href="mailto:mishrash662@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border);">mishrash662@gmail.com</a> · +91 9289439376</p>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/ashwini-mishra-998320251/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://drive.google.com/file/d/1cr1WKUK8EONd3mDSZPmN6Qf-GLDcJGDd/view?usp=sharing" target="_blank" rel="noopener">CV</a>
-        <a href="mailto:mishrash662@gmail.com">Email</a>
-      </div>
-    </div>
-  </footer>
-
+<body class="font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-background/80 dark:bg-background/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-surface-container-high dark:border-outline-variant">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<a class="text-body-lg font-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed uppercase" href="#">ASHWINI MISHRA</a>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-label-sm font-label-sm" href="#experience">Experience</a>
+<a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-label-sm font-label-sm" href="#projects">Projects</a>
+<a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-label-sm font-label-sm" href="#about">About</a>
+<a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-label-sm font-label-sm" href="#contact">Contact</a>
+</nav>
+<a href="mailto:mishrash662@gmail.com" class="bg-primary text-white px-8 py-3 rounded-full font-label-sm text-label-sm hover:opacity-80 active:scale-95 transition-all">
+            Get in touch
+        </a>
 </div>
+</header>
+<!-- Hero Section -->
+<section class="dot-grid relative overflow-hidden pt-24 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-3/5 space-y-8">
+<div class="inline-flex items-center gap-2 bg-[#E6F4F1] text-on-tertiary-container px-4 py-1.5 rounded-full border border-[#B2DFD6]">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span class="text-label-sm font-label-sm">OPEN TO APM / PM ROLES</span>
+</div>
+<h1 class="font-display-xl text-display-xl text-on-surface leading-tight tracking-tighter">
+                Hi, I'm a <br><span class="text-secondary italic font-normal">product manager</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                I ship products at the intersection of growth, retention, and AI. Took Qodex.AI from zero to $4,500 MRR and 5,500 monthly visitors. Currently building Voice Family Agent and designing Clerk.
+            </p>
+<div class="flex flex-wrap gap-4">
+<a href="https://drive.google.com/file/d/1cr1WKUK8EONd3mDSZPmN6Qf-GLDcJGDd/view?usp=sharing" target="_blank" rel="noopener" class="bg-primary text-white px-10 py-4 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-all shadow-xl shadow-black/10">
+                    Resume</a>
+<a href="https://www.linkedin.com/in/ashwini-mishra-998320251/" target="_blank" rel="noopener" class="bg-white border-1.5 border-primary text-primary px-10 py-4 rounded-full font-label-sm text-label-sm hover:bg-surface-container-low transition-all">
+                    LinkedIn</a>
+</div>
+</div>
+<div class="w-full md:w-2/5 flex flex-col gap-6">
+<div class="flex gap-6 items-end">
+<div class="bg-white rounded-[2rem] p-6 custom-shadow border border-surface-container-high w-full">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md">Ashwini Mishra</h3>
+<p class="text-on-surface-variant text-label-sm">India · Remote</p>
+</div>
+</div>
+<div class="aspect-square rounded-2xl overflow-hidden mb-6 relative group">
+<img alt="Ashwini Mishra" class="w-full h-full object-cover" src="ashwini.jpeg">
+</div>
+<div class="bg-[#F1F3F5] rounded-xl p-4 flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-on-tertiary-container">Growth · AI · 0 to 1</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-3 justify-end">
+<a href="https://www.linkedin.com/in/ashwini-mishra-998320251/" target="_blank" rel="noopener" class="w-12 h-12 rounded-full bg-white custom-shadow border border-surface-container-high flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-xl text-on-surface-variant">work</span>
+</a>
+<a href="mailto:mishrash662@gmail.com" class="w-12 h-12 rounded-full bg-white custom-shadow border border-surface-container-high flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-xl text-on-surface-variant">mail</span>
+</a>
+<a href="tel:+919289439376" class="w-12 h-12 rounded-full bg-white custom-shadow border border-surface-container-high flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-xl text-on-surface-variant">call</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="experience">
+<div class="mb-16">
+<h2 class="font-display-xl text-display-xl">Experience</h2>
+</div>
+<div class="space-y-12">
+<!-- Qodex.AI -->
+<div class="bg-white rounded-[2.5rem] p-8 md:p-16 custom-shadow border border-surface-container-high relative overflow-hidden group">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary">Qodex.AI (OutX.AI)</h3>
+<p class="text-secondary font-headline-md text-2xl mt-2">Associate Product Manager, AI, Growth &amp; Conversion</p>
+</div>
+<div class="text-left md:text-right">
+<p class="text-on-surface font-bold text-xl">May 2025 to Present</p>
+<p class="text-on-surface-variant text-label-sm">Remote</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
+<ul class="space-y-6 font-body-lg text-on-surface-variant list-none">
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">Took the product from zero to one; ran A/B experiments across onboarding, pricing, and activation to find the highest-converting flow. <strong class="text-on-surface">Signups scaled 0 to 40+/day, visitors 41 to 5,500/month, bounce rate dropped 22%, and MRR hit $4,500.</strong></span>
+</li>
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">Users were getting irrelevant LinkedIn post suggestions, keeping trial-to-paid stuck at 1%; collaborated with AI engineer to re-train the AI model over a labeled dataset across 50 industries for better intent matching and a Relevancy Score. <strong class="text-on-surface">Support tickets dropped 80 to 30/week, retention grew 12%, and trial-to-paid rose 1% to 3%.</strong></span>
+</li>
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">Activation was stuck at 5% and churn detection took 2 days of manual work; built <strong class="text-on-surface">FunnelMind</strong> to track users from signup to first value, score them, and send personalised re-engagement emails. <strong class="text-on-surface">Detection dropped to hours, CLTV improved 10%, and activation rose 5% to 34%.</strong></span>
+</li>
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">OutX had zero discoverability at launch; used AI to find high-intent Reddit threads and fed those insights into content and product decisions. <strong class="text-on-surface">Drove 0 to 1 organic growth within 2 months.</strong></span>
+</li>
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">Product decisions were based on stale data; built a live feedback loop using <strong class="text-on-surface">n8n + OpenClaw</strong> to continuously analyze web page rankings and engagement signals, identify issues, and deploy fixes directly to the codebase, <strong class="text-on-surface">improving discoverability by 25%.</strong></span>
+</li>
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">Content was slow and not converting; built a <strong class="text-on-surface">Content Agent</strong> pulling daily signals from Reddit, LinkedIn, Twitter, YouTube, and Substack to write platform-specific content and deliver it via Slack. <strong class="text-on-surface">Cut content effort by 50% and improved engagement.</strong></span>
+</li>
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">Owned the full user lifecycle (Visitor &rarr; Signup &rarr; Activation &rarr; Paid &rarr; Retention); defined KPIs in Mixpanel, built dashboards to analyze drop-offs, wrote PRDs, and shipped iterative improvements with ML and engineering.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- SkillUp -->
+<div class="bg-white rounded-[2.5rem] p-8 md:p-16 custom-shadow border border-surface-container-high relative overflow-hidden group">
+<div class="absolute -left-20 -bottom-20 w-80 h-80 bg-tertiary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary">SkillUp</h3>
+<p class="text-secondary font-headline-md text-2xl mt-2">Founder, Product, Growth &amp; Systems (Side Project)</p>
+</div>
+<div class="text-left md:text-right">
+<p class="text-on-surface font-bold text-xl">July 2025 to Nov 2025</p>
+<p class="text-on-surface-variant text-label-sm">Remote</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
+<ul class="space-y-6 font-body-lg text-on-surface-variant list-none">
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">Identified a gap in how freshers practice PM; ran 15+ interviews with students and placement officers to reframe it as a proof gap, then built and shipped a <strong class="text-on-surface">gamified 4-week cross-functional sprint platform solo while working full-time</strong>. <strong class="text-on-surface">Acquired 100 users in 3 weeks through community distribution.</strong></span>
+</li>
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">Students had no artifact to prove cross-functional work under pressure; designed a <strong class="text-on-surface">Smart Portfolio</strong> that auto-generates after every sprint with role tags, peer scores, and time-stamped deliverables. <strong class="text-on-surface">3 users paid for premium on an unfinished product, validating intent.</strong></span>
+</li>
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed">Turned interview findings into a prioritised backlog; designed onboarding and retention loops using session data to pull users to their first meaningful moment faster. <strong class="text-on-surface">Improved early engagement and return rates.</strong></span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Currently Building -->
+<div class="bg-white rounded-[2.5rem] p-8 md:p-16 custom-shadow border border-surface-container-high relative overflow-hidden group">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary">Currently building</h3>
+<p class="text-secondary font-headline-md text-2xl mt-2">Daakwala · Clerk</p>
+</div>
+<div class="text-left md:text-right">
+<p class="text-on-surface font-bold text-xl">2026 to Present</p>
+<p class="text-on-surface-variant text-label-sm">Independent</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
+<ul class="space-y-6 font-body-lg text-on-surface-variant list-none">
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed"><strong class="text-on-surface">Daakwala (Voice Family Agent)</strong>, a single phone call that puts AI in anyone's hands. A 6-year-old calling their parents, an 80-year-old booking medicine without a smartphone, a farmer outsourcing crops to a verified vendor, all through one number. Bolna telephony + on-device planner + Composio cloud. <strong class="text-on-surface">Live: set alarm, food booking, music playing. Upcoming: headless browser + multi-step execution.</strong></span>
+</li>
+<li class="flex gap-4">
+<span class="text-secondary text-2xl leading-none">•</span>
+<span class="leading-relaxed"><strong class="text-on-surface">Clerk</strong>, an orchestration layer for multi-step AI tasks. Born from watching agent chains break midway while building Voice Family Agent. Shared memory across agents, group consent, persistent state, human-in-the-loop steering.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="projects">
+<div class="max-w-container-max mx-auto"><div class="mb-16"><h2 class="font-display-xl text-display-xl">Projects</h2></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Left Side: 3 Projects -->
+<div class="flex flex-col gap-8">
+<div class="block bg-white rounded-[2.5rem] p-10 custom-shadow border border-surface-container-high group">
+<div class="flex justify-between items-start">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<h4 class="font-bold text-2xl tracking-tight text-on-surface">01</h4>
+<span class="text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full uppercase tracking-wider">Private</span>
+</div>
+<h3 class="font-headline-md text-3xl">OpenClaw + n8n</h3>
+<p class="text-on-surface-variant text-body-lg">
+                                Live feedback loop that continuously analyzes web page rankings and engagement signals, identifies issues, and deploys fixes directly to the codebase. <strong class="text-on-surface">Improved discoverability by 25%.</strong>
+                            </p>
+<p class="text-secondary font-label-sm uppercase tracking-wider">n8n · Claude · Headless Browser · SEMrush</p>
+</div>
+<div class="material-symbols-outlined text-on-surface-variant text-5xl opacity-20">lock</div>
+</div>
+</div>
+<a href="https://retention-agent.vercel.app/dashboard" target="_blank" rel="noopener" class="block bg-white rounded-[2.5rem] p-10 custom-shadow border border-surface-container-high group hover:bg-primary transition-all duration-500 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="space-y-4">
+<h4 class="font-bold text-2xl tracking-tight text-on-surface group-hover:text-white">02</h4>
+<h3 class="font-headline-md text-3xl group-hover:text-white">FunnelMind</h3>
+<p class="text-on-surface-variant group-hover:text-white/60 text-body-lg">
+                                Tracks users from signup to first value, scores them on 4 signals, and triggers personalised re-engagement. <strong class="text-on-surface group-hover:text-white">Detection 2 days to hours. CLTV +10%. Activation 5% to 34%.</strong>
+                            </p>
+<p class="text-secondary group-hover:text-white/80 font-label-sm uppercase tracking-wider">Mixpanel · Claude Haiku · OpenRouter</p>
+</div>
+<div class="material-symbols-outlined text-primary group-hover:text-white text-5xl opacity-20">arrow_outward</div>
+</div>
+</a>
+<a href="https://lila-black.vercel.app/" target="_blank" rel="noopener" class="block bg-white rounded-[2.5rem] p-10 custom-shadow border border-surface-container-high group hover:bg-primary transition-all duration-500 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="space-y-4">
+<h4 class="font-bold text-2xl tracking-tight text-on-surface group-hover:text-white">03</h4>
+<h3 class="font-headline-md text-3xl group-hover:text-white">Lila VIZ</h3>
+<p class="text-on-surface-variant group-hover:text-white/60 text-body-lg">
+                                Designers had no lightweight tool to map game layouts before writing code. Scoped and shipped a visual level design tool that <strong class="text-on-surface group-hover:text-white">reduced back-and-forth between design and engineering.</strong>
+                            </p>
+<p class="text-secondary group-hover:text-white/80 font-label-sm uppercase tracking-wider">React · Node.js</p>
+</div>
+<div class="material-symbols-outlined text-primary group-hover:text-white text-5xl opacity-20">arrow_outward</div>
+</div>
+</a>
+</div>
+<!-- Right Side: Featured Project -->
+<div class="bg-white rounded-[2.5rem] p-10 md:p-16 custom-shadow border border-surface-container-high flex flex-col justify-between group hover:bg-primary transition-all duration-500 cursor-pointer overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="font-bold text-2xl tracking-tight text-on-surface group-hover:text-white mb-8">FEATURED · LIVE</h4>
+<h3 class="font-display-xl text-5xl md:text-7xl group-hover:text-white mb-8">Daakwala</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 text-body-lg max-w-md mb-8">
+                        A single phone call that puts AI in anyone's hands, regardless of literacy or tech comfort. A 6-year-old calling parents, an 80-year-old booking medicine, a farmer finding a vendor, a CEO scheduling tasks. One number, one agent, multilingual.
+                    </p>
+<p class="text-on-surface-variant group-hover:text-white/80 text-body-md max-w-md mb-3"><strong class="text-on-surface group-hover:text-white">Working:</strong> set alarm, food booking, music playing.</p>
+<p class="text-on-surface-variant group-hover:text-white/80 text-body-md max-w-md mb-12"><strong class="text-on-surface group-hover:text-white">Upcoming:</strong> headless browser + multi-step execution.</p>
+<div class="flex flex-wrap gap-4 mb-16">
+<span class="px-6 py-2 rounded-full border border-outline-variant group-hover:border-white/20 group-hover:text-white text-label-sm">Bolna</span>
+<span class="px-6 py-2 rounded-full border border-outline-variant group-hover:border-white/20 group-hover:text-white text-label-sm">On-device LLM</span>
+<span class="px-6 py-2 rounded-full border border-outline-variant group-hover:border-white/20 group-hover:text-white text-label-sm">Composio</span>
+<span class="px-6 py-2 rounded-full border border-outline-variant group-hover:border-white/20 group-hover:text-white text-label-sm">Android</span>
+</div>
+</div>
+<div class="flex justify-between items-end relative z-10">
+<span class="bg-[#E6F4F1] text-on-tertiary-container group-hover:bg-white/10 group-hover:text-white px-10 py-4 rounded-full font-label-sm text-label-sm transition-all inline-flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+                        Live · expanding
+                    </span>
+<div class="material-symbols-outlined text-primary group-hover:text-white text-8xl opacity-10">call</div>
+</div>
+<div class="absolute -right-20 -bottom-20 w-96 h-96 bg-secondary/5 group-hover:bg-white/5 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission & Stack -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#2BA7BD] text-white">
+<div class="max-w-container-max mx-auto space-y-24">
+<h2 class="font-headline-lg text-headline-lg max-w-4xl">
+            I build products that make the user feel something on the first run, then quietly stitch the funnel behind them so they come back without being asked.
+        </h2>
+<div class="flex flex-wrap justify-between items-center opacity-80 gap-12">
+<span class="font-bold text-2xl tracking-tight">Qodex.AI</span>
+<span class="font-bold text-2xl tracking-tight">OutX.AI</span>
+<span class="font-bold text-2xl tracking-tight">SkillUp</span>
+<span class="font-bold text-2xl tracking-tight">Daakwala</span>
+<span class="font-bold text-2xl tracking-tight">Clerk</span>
+<span class="font-bold text-2xl tracking-tight">OpenClaw</span>
+</div>
+</div>
+</section>
+<!-- How Can I Assist You? Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden" id="about">
+<div class="flex flex-col lg:flex-row gap-16">
+<div class="lg:w-1/3">
+<h2 class="font-display-xl text-display-xl leading-[1.1] mb-6">How<br>I work</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A PM who actually ships. The shape of what I bring splits into four clean buckets.</p>
+</div>
+<div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Bucket 01 -->
+<div class="bg-white p-10 rounded-[2.5rem] custom-shadow border border-surface-container-high relative overflow-hidden group">
+<div class="text-surface-container-highest font-bold text-6xl absolute right-6 top-6 opacity-30 transition-transform group-hover:scale-110">01</div>
+<div class="relative z-10 space-y-6">
+<div class="w-12 h-12 rounded-2xl bg-[#E6F4F1] flex items-center justify-center text-[#2BA7BD]">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+</div>
+<div class="space-y-3">
+<h3 class="font-headline-md text-2xl">0 to 1 building</h3>
+<p class="text-on-surface-variant text-body-md">
+                            Took Qodex.AI from zero to $4,500 MRR and 5,500 monthly visitors. Built SkillUp solo to 100 real users in 3 weeks while working full-time. I prefer the part where nothing exists yet.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Bucket 02 -->
+<div class="bg-white p-10 rounded-[2.5rem] custom-shadow border border-surface-container-high relative overflow-hidden group">
+<div class="text-surface-container-highest font-bold text-6xl absolute right-6 top-6 opacity-30 transition-transform group-hover:scale-110">02</div>
+<div class="relative z-10 space-y-6">
+<div class="w-12 h-12 rounded-2xl bg-[#E6F4F1] flex items-center justify-center text-[#2BA7BD]">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</div>
+<div class="space-y-3">
+<h3 class="font-headline-md text-2xl">AI agents &amp; automation</h3>
+<p class="text-on-surface-variant text-body-md">
+                            Built OpenClaw, a 3-agent SEO and content system that replaced 15 to 20 hours/week of manual ops and lifted discoverability by 25%. Comfortable with n8n, headless browsers, multi-agent orchestration.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Bucket 03 -->
+<div class="bg-white p-10 rounded-[2.5rem] custom-shadow border border-surface-container-high relative overflow-hidden group">
+<div class="text-surface-container-highest font-bold text-6xl absolute right-6 top-6 opacity-30 transition-transform group-hover:scale-110">03</div>
+<div class="relative z-10 space-y-6">
+<div class="w-12 h-12 rounded-2xl bg-[#E6F4F1] flex items-center justify-center text-[#2BA7BD]">
+<span class="material-symbols-outlined text-3xl">query_stats</span>
+</div>
+<div class="space-y-3">
+<h3 class="font-headline-md text-2xl">Growth &amp; retention</h3>
+<p class="text-on-surface-variant text-body-md">
+                            Owned the full funnel at Qodex. Activation went from 5% to 34%. Built FunnelMind, a live churn-risk scorer that cut detection from 2 days to hours and lifted CLTV by 10%.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Bucket 04 -->
+<div class="bg-white p-10 rounded-[2.5rem] custom-shadow border border-surface-container-high relative overflow-hidden group">
+<div class="text-surface-container-highest font-bold text-6xl absolute right-6 top-6 opacity-30 transition-transform group-hover:scale-110">04</div>
+<div class="relative z-10 space-y-6">
+<div class="w-12 h-12 rounded-2xl bg-[#E6F4F1] flex items-center justify-center text-[#2BA7BD]">
+<span class="material-symbols-outlined text-3xl">target</span>
+</div>
+<div class="space-y-3">
+<h3 class="font-headline-md text-2xl">Strategy &amp; systems</h3>
+<p class="text-on-surface-variant text-body-md">
+                            Turning messy ambiguity into the one paragraph that ends the meeting. PRDs, KPI trees in Mixpanel, ranking system rebuilds. Cut weekly support tickets from 80 to 30 by fixing the underlying recommendation logic.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 bg-[#2BA7BD] rounded-[2.5rem] p-10 md:p-16 text-white text-center">
+<p class="font-headline-md text-2xl md:text-3xl mb-8">
+            Drop me a line at <a class="underline hover:text-white/80" href="mailto:mishrash662@gmail.com">mishrash662@gmail.com</a> with one line on the problem and what you've tried so far.
+        </p>
+<a class="inline-block bg-white text-[#2BA7BD] px-10 py-4 rounded-full font-label-sm text-label-sm hover:bg-surface-container-low transition-all font-bold" href="mailto:mishrash662@gmail.com">
+            Send an email
+        </a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-bright dark:bg-surface-dim pt-section-gap pb-stack-lg border-t border-surface-container-high" id="contact">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20"><div class="space-y-8 max-w-lg">
+<h2 class="text-headline-md font-headline-md text-primary uppercase">ASHWINI MISHRA</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Looking for APM and PM roles in growth, retention, or AI-native product teams. Happy to chat about a problem, a role, or just the build.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    <a class="hover:text-secondary transition-colors" href="mailto:mishrash662@gmail.com">mishrash662@gmail.com</a> &middot;
+                    <a class="hover:text-secondary transition-colors" href="tel:+919289439376">+91 9289 439 376</a>
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-x-20 gap-y-6">
+<div class="space-y-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-50">SOCIALS</p>
+<a class="block font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="https://www.linkedin.com/in/ashwini-mishra-998320251/" target="_blank" rel="noopener">LinkedIn</a>
+<a class="block font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="https://ashwini7506.github.io/Portfolio/" target="_blank" rel="noopener">Portfolio</a>
+<a class="block font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="https://drive.google.com/file/d/1cr1WKUK8EONd3mDSZPmN6Qf-GLDcJGDd/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+<a class="block font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="mailto:mishrash662@gmail.com">Email</a>
+</div>
+<div class="space-y-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-50">BASED IN</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">India</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Remote-friendly globally</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg border-t border-surface-container-high gap-6">
+<p class="text-label-sm font-label-sm text-on-surface-variant">&copy; 2026 Ashwini Mishra. Built end-to-end.</p>
+<div class="flex gap-8">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</div>
+</footer>
 
-</body>
-</html>
+
+</body></html>
